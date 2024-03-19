@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #343a40;  /* Dark background color */
+    color: #707070;  /* White text color */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fira Code', monospace;
+}
+
+.slider-container {
+    display: flex;
+    justify-content: space-around; /* evenly distribute items along the horizontal line */
+    flex-wrap: wrap;
+}
+.slider-wrapper {
+    flex: 1 0 20%; /* flex-grow, flex-shrink, flex-basis */
+    margin: 0 10px;
+}

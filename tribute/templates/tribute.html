@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container mt-5">
+    <div class="jumbotron">
+        <h1 class="text-center">🌱 Tribute</h1>
+        <p class="lead text-center">Support your values, your way.</p>
+    </div>
+</div>
+
+<div>
+    <div class="jumbotron">
+        <p>🎉 Welcome to Tribute! Tribute is a subscription service that empowers you to donate to various charities. Customise your donations based on your broad preferences, and make a difference to the world. 🌍💖</p>
+<p>Each month, you'll receive an "impact portfolio" 📈 showing the impact of your donations over time. This allows you to see how your contributions are making a difference. 💪🌟</p>
+<p>Our goal is to create a platform that makes it easy for people to support charities with a set it and forget it mindset. </p>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="jumbotron">
+        <form action="/tribute" method="post">
+            {% csrf_token %}
+            <div class="container">
+                {% for slider in sliders %}
+                <div class="row">
+                    <div class="col-sm-6 slider-wrapper">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ slider.title }}</h5>
+                                <p class="card-text">{{ slider.description }}</p>
+                                <input type="range" class="slider" min="0" max="100" value="0"
+                                    oninput="adjustSliders(this)">
+                                <span class="slider-value">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function adjustSliders(changedSlider) {
+        // Get all sliders
+        const sliders = Array.from(document.getElementsByClassName('slider'));
+        let total = 0;
+
+        // Calculate the total value of all sliders
+        sliders.forEach(slider => {
+            total += Number(slider.value);
+        });
+
+        // If the total is greater than 100, reduce the value of all sliders proportionally
+        if (total > 100) {
+            sliders.forEach(slider => {
+                slider.value = (Number(slider.value) * 100 / total).toFixed(2);
+                slider.nextElementSibling.textContent = slider.value;
+            });
+        } else if (total < 100) {
+            // Find the slider with the lowest value
+            let minSlider = sliders.reduce((min, slider) => Number(slider.value) < Number(min.value) ? slider : min, sliders[0]);
+
+            // Increase the value of the slider with the lowest value
+            minSlider.value = (Number(minSlider.value) + (100 - total)).toFixed(2);
+            minSlider.nextElementSibling.textContent = minSlider.value;
+        } else {
+            // Update the displayed value of the changed slider
+            changedSlider.nextElementSibling.textContent = changedSlider.value;
+        }
+    }
+</script>
+{% endblock %}
