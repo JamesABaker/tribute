@@ -15,14 +15,14 @@ Customise your donations based on your broad preferences, and make a difference 
 1. **Clone the repository**: First, you'll need to clone the repository to your local machine. You can do this with the following command:
 
 ```bash
-git clone <repository_url>
+git clone https://github.com/JamesABaker/tribute
 ```
 
 2. **Install the dependencies**: Once you've cloned the repository, you'll need to install the dependencies. You can do this with the following command:
 
 ```bash
-cd <project_directory>
-python3 -m venv env
+cd tribute
+python -m venv env
 source env/bin/activate
 pip install -r requirements.txt
 ```
