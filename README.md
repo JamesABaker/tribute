@@ -1,5 +1,7 @@
 # 🌱 Tribute
 
+This page is a non-functional concept mock up for a charity subscription service.
+
 **Support your values, your way.**
 
 🎉 Welcome to Tribute. Tribute is a subscription service that empowers you to donate to various charities. Simple. No fuss.
