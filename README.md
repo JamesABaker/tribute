@@ -37,6 +37,9 @@ python manage.py runserver
 
 You should now be able to access the application at `http://localhost:8000`.
 
+![image](https://github.com/user-attachments/assets/75b9af09-8830-493f-b200-96c68e6134cf)
+
+
 #### Technologies used
 
 - [Django](https://www.djangoproject.com/)
