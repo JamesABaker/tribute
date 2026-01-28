@@ -1,4 +1,6 @@
-# 🌱 Tribute
+# 🌱 Tribute 
+
+## Deprecated
 
 This page is a non-functional concept mock up for a charity subscription service.
 
